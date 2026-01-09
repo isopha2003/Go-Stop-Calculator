@@ -1,4 +1,3 @@
-// Secomd Test Commit
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -9,8 +8,8 @@ import javax.swing.JPanel;
 
 public class ResultDialog extends JDialog {
 	private Color textColor = Color.black;
-	private Color redColor = new Color(174, 10, 28);
-	private Color greenColor = new Color(43, 102, 34);
+	// private Color redColor = new Color(174, 10, 28);
+	// private Color greenColor = new Color(43, 102, 34);
 	
 	private Font subFont = new Font("맑은 고딕", Font.BOLD, 15);
 	
@@ -32,14 +31,16 @@ public class ResultDialog extends JDialog {
 		this.winnerLabel.setText(winner);
 		this.loser1Label.setText(loser1);
 		this.loser2Label.setText(loser2);
-		this.loser1Price.setText('-' + loser1Price + '원');
-		this.loser1Price.setBackground(redColor);
-		this.loser2Price.setText('-' + loser2Price + '원');
+		this.loser1Price.setText('-' + loser1Price);
+		// this.loser1Price.setBackground(redColor);
+		this.loser2Price.setText('-' + loser2Price);
+		
 		JPanel firstPanel = new JPanel();
 		firstPanel.setLayout(new GridLayout(1, 1));
 		winnerLabel.setText(winner);
 		winnerLabel.setHorizontalAlignment(JLabel.CENTER);
 		firstPanel.add(winnerLabel);
+		
 		JPanel secondPanel = new JPanel();
 		if (totalPlayer >= 3) {
 			secondPanel.setLayout(new GridLayout(2, 2));
@@ -63,7 +64,7 @@ public class ResultDialog extends JDialog {
 	public ResultDialog(String winner, String loser, String loserPrice, int totalPlayer) {
 		this.winnerLabel.setText(winner);
 		this.loser1Label.setText(loser);
-		this.loser1Price.setText(loserPrice);
+		this.loser1Price.setText('-' + loserPrice);
 		this.totalPlayer = totalPlayer;
 		
 		setSize(250, 250);
@@ -73,7 +74,8 @@ public class ResultDialog extends JDialog {
 		JPanel firstPanel = new JPanel();
 		firstPanel.setLayout(new GridLayout(1, 1));
 		winnerLabel.setHorizontalAlignment(JLabel.CENTER);
-		add(winnerLabel);
+		firstPanel.add(winnerLabel);
+		
 		JPanel secondPanel = new JPanel();
 		secondPanel.setLayout(new GridLayout(1, 2));
 		loser1Label.setHorizontalAlignment(JLabel.CENTER);
