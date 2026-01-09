@@ -247,13 +247,15 @@ public class NorthPanel extends JPanel {
 					
 					countGwang = gwangCB2.getSelectedIndex();
 					price = countGwang * pricePerGwang;
-					for (int i = 0; i < totalPlayer; i++) {
-						if (i == seller || i == seller2) {
-							continue;
-						}
-						else {
-							players[i].setPayment(seller2, price);
-							players[seller2].setPayment(i, -price);
+					if (totalPlayer == 5) {
+						for (int i = 0; i < totalPlayer; i++) {
+							if (i == seller || i == seller2) {
+								continue;
+							}
+							else {
+								players[i].setPayment(seller2, price);
+								players[seller2].setPayment(i, -price);
+							}
 						}
 					}
 					centerPanel.setPlayer(players, totalPlayer);
